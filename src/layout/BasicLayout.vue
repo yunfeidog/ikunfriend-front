@@ -30,13 +30,17 @@
 import {ref} from "vue";
 
 const active = ref("index");
+const router = useRouter();
 const onChange = (index) => showToast(`标签 ${index}`);
 import {showToast} from "vant";
-import Index from "../pages/Index/index.vue";
-import Team from "../pages/Team/index.vue";
+import {useRouter} from "vue-router";
 
-const onClickLeft = () => history.back();
-const onClickRight = () => showToast('按钮');
+const onClickLeft = () => {
+    router.back();
+}
+const onClickRight = () => {
+    router.push("/search");
+}
 </script>
 
 <style scoped>
