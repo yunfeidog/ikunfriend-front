@@ -30,12 +30,15 @@
         :items="filterTagList"
     />
 
+    <van-button type="primary"  block @click="doSearchResult">搜索</van-button>
+
 
 </template>
 
 <script setup lang="ts">
 import {ref} from "vue";
 import {showToast} from "vant";
+import {useRouter} from "vue-router";
 
 //搜索框文字
 const searchText = ref('');
@@ -61,6 +64,7 @@ const tagList = [
 ]
 const filterTagList = ref(tagList);
 
+const router = useRouter();
 //搜索 过滤
 const onSearch = () => {
     filterTagList.value = tagList.map(parentTag => {
@@ -88,6 +92,14 @@ const doClose = (tag) => {
     });
 }
 
+const doSearchResult = () => {
+    router.push({
+        path: '/user/list',
+        query: {
+            tags: activeIds.value
+        }
+    })
+}
 
 </script>
 

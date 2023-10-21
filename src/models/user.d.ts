@@ -14,4 +14,5 @@ export type UserType = {
     ikunCode: string;
     tags: string;
     createTime: Date;
+    profile?: string;
 };
