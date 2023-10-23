@@ -1,20 +1,6 @@
 <template>
-    <van-card
-        v-for="user in userList"
-        :desc="user.profile"
-        :title="`${user.username}（${user.ikunCode}）`"
-        :thumb="user.avatarUrl"
-    >
-        <template #tags>
-            <van-tag plain type="primary" v-for="tag in user.tags"
-                     style="margin-right: 5px;margin-top: 5px;">
-                {{ tag }}
-            </van-tag>
-        </template>
-        <template #footer>
-            <van-button size="mini" type="default">联系我</van-button>
-        </template>
-    </van-card>
+    <user-card-list :user-list="userList"/>
+    <van-empty v-if="!userList ||userList.length<1" description="结果为空"/>
 
 
 </template>
@@ -24,6 +10,7 @@ import {useRoute} from "vue-router";
 import {onMounted, ref} from "vue";
 import request from "../../plugins/request";
 import qs from 'qs'
+import UserCardList from "../../components/UserCardList.vue";
 
 const route = useRoute();
 const {tags} = route.query;
@@ -49,7 +36,7 @@ onMounted(async () => {
             return qs.stringify(params, {indices: false})
         }
     }).then(function (response) {
-        return response.data?.data;
+        return response.data;
     }).catch(function (error) {
     })
     if (userListData) {
