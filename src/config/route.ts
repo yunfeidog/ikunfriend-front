@@ -7,6 +7,8 @@ import Search from "../pages/Search/index.vue";
 import UserEdit from "../pages/User/UserEdit.vue";
 import SearchResult from "../pages/Search/SearchResult.vue";
 import UserLogin from "../pages/User/UserLogin.vue";
+import TeamAdd from "../pages/Team/TeamAdd.vue";
+import TeamUpdate from "../pages/Team/TeamUpdate.vue";
 
 const routes = [
     {path: '/', component: Index},
@@ -30,6 +32,14 @@ const routes = [
     {
         path: '/user/login',
         component: UserLogin
+    },
+    {
+      path: '/team/add',
+        component: TeamAdd
+    },
+    {
+        path: '/team/update',
+        component: TeamUpdate
     }
 ]
 
