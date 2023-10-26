@@ -9,6 +9,9 @@ import SearchResult from "../pages/Search/SearchResult.vue";
 import UserLogin from "../pages/User/UserLogin.vue";
 import TeamAdd from "../pages/Team/TeamAdd.vue";
 import TeamUpdate from "../pages/Team/TeamUpdate.vue";
+import UserUpdate from "../pages/User/UserUpdate.vue";
+import UserCreate from "../pages/User/UserCreate.vue";
+import UserJoin from "../pages/User/UserJoin.vue";
 
 const routes = [
     {path: '/', component: Index},
@@ -40,7 +43,19 @@ const routes = [
     {
         path: '/team/update',
         component: TeamUpdate
-    }
+    },
+    {
+        path: '/user/update',
+        component: UserUpdate
+    },
+    {
+        path: '/user/team/create',
+        component: UserCreate
+    },
+    {
+        path: '/user/team/join',
+        component: UserJoin
+    },
 ]
 
 const router = VueRouter.createRouter({

@@ -1,10 +1,19 @@
 <template>
     <template v-if="user">
-        <van-cell title="当前用户 " :value="user?.username"/>
-        <van-cell title="修改信息 " is-link to="/user/update"/>
-        <van-cell title="我创建的队伍" is-link to="/user/team/create"/>
-        <van-cell title="我加入的队伍" is-link to="/user/team/join"/>
-
+        <van-cell title="用户名" is-link :value="user.username"
+                  @click="toEdit('username','用户名',user.username)"/>
+        <van-cell title="账号" is-link :value="user.userAccount"/>
+        <van-cell title="头像" is-link :value="user.avatarUrl">
+            <VanImage :src="user.avatarUrl" height="48px" alt="cxk"/>
+        </van-cell>
+        <van-cell title="性别" is-link :value="user.gender"
+                  @click="toEdit('gender','性别',user.gender)"/>
+        <van-cell title="电话" is-link :value="user.phone"
+                  @click="toEdit('phone','电话',user.phone)"/>
+        <van-cell title="邮箱" is-link :value="user.email"
+                  @click="toEdit('email','邮箱',user.email)"/>
+        <van-cell title="ikun编号" is-link :value="user.ikunCode"/>
+        <van-cell title="注册时间" is-link :value="user.createTime"/>
     </template>
 </template>
 
